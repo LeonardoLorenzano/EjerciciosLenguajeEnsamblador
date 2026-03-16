@@ -2,10 +2,10 @@ section .text
     global suma
 
 suma:
-    ; RDI recibe el primer termino (int a)
-    ; RSI recibe el segundo termino (int b)
+    ; RDI recibe el primer numero (int a)
+    ; RSI recibe el segundo numero (int b)
 
-    mov rax, rsi          ; RAX es el primer numero
-    add rax, rsi          ; RAX = RAX + RSI 
+    mov rax, rdi                ; RAX = primer numero  
+    add rax, rsi                ; RAX = RAX + RSI 
 
-    ret
+    ret 

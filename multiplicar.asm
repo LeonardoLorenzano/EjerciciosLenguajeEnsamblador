@@ -1,11 +1,11 @@
-global .text 
-    multiplicar 
+global .text
+    global multiplicar
 
-multiplicar:
-    ; RDI recibe el prrimer numero
-    ; RSI recibe el segundo numero 
+multiplicar: 
+    ; RDI tiene el primer numero 'a'
+    ; RSI tiene el segundo numero 'b' 
 
-    mov rax, rdi              ; RAX = primer numero 
-    imul rax, rsi             ; RAX = RAX * RSI (int a * int b)
+    mov rax, rdi            ; RAX = primer numero  
+    imul rax, rsi           ; RAX = RAX * RSI (a * b) 
 
-    ret 
+    ret
