@@ -1,14 +1,24 @@
 section .text
     global numeroPar
 
-numeroPar: 
-    ; RDI es el numero a verificar 
-
-    mov rax, rdi        
-    and rdi, 1          ; Hacemos un AND con 1. 
-                        ; Si el número era impar, RAX será 1.
-                        ; Si era par, RAX será 0.
+numeroPar:
+    ; RDI = nmero a verificar
     
-    ; Pero como queremos que devuelva 1 si es PAR:
-    xor rax, 1          ; Invertimos el resultado (0 se vuelve 1, 1 se vuelve 0)
+    mov rax, rdi        ; Preparamos el dividendo en RAX
+    cqo                 ; IMPORTANTE: Extendemos el signo a RDX
+    
+    mov rcx, 2          ; El divisor será 2
+    idiv rcx            ; Dividimos RDX:RAX entre 2
+                        ; Resultado (cociente) en RAX, Residuo en RDX
+
+    ; Ahora comparamos el residuo que quedó en RDX
+    cmp rdx, 0
+    je .es_par          ; Si el residuo es 0, salta a la etiqueta .es_par
+    
+    ; Si no saltó, es impar
+    mov rax, 0          ; Retornamos 0 (Falso)
+    ret
+
+.es_par:
+    mov rax, 1          ; Retornamos 1 (Verdadero)
     ret

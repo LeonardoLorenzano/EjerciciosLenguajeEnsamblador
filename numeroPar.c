@@ -9,7 +9,7 @@ int main(int argc, char const *argv[]) {
     printf("Ingrese un numero: "); 
     scanf("%d", &num); 
 
-    if (numeroPar(num)) {
+    if (numeroPar(num) == 1) {
         printf("El numero es par.\n");
     } else {
         printf("El numero es impar.\n");
