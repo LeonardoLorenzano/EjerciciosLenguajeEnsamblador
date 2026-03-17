@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-extern long multiplicacionNumerosNaturales(long n); 
+extern long sumatoriaPrimeros_N_NumerosNaturales(long n); 
 
 int main(int argc, char const *argv[]) {
 
@@ -9,9 +9,9 @@ int main(int argc, char const *argv[]) {
     printf("Ingrese el numero: "); 
     scanf("%ld", &num1); 
 
-    resultado = multplicacionNumerosNaturales (num1); 
+    resultado = sumatoriaPrimeros_N_NumerosNaturales (num1); 
 
-    printf("El resultado es: %ld\n", resultado); 
+    printf("La sumatoria es: %ld\n", resultado); 
     
     return 0;
 }
