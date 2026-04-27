@@ -20,7 +20,7 @@ mi_strcpy_pro:
     repne scasb             ; Busca el 0
     
     ; Ahora calculamos cuántos bytes encontramos
-    not rcx                 ; Invierte RCX para obtener la longitud + 1 [cite: 157]
+    not rcx                 ; Invierte RCX para obtener la longitud + 1 
     ; RCX ahora tiene el número exacto de bytes a copiar (incluyendo el nulo)
 
     ; PASO 2: Copiar el bloque completo
