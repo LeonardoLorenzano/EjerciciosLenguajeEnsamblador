@@ -1,11 +1,11 @@
-section .text
+secton .text
     global resta 
 
-resta: 
-    ; RAX recibe el minuendo 
-    ; RSI recibe el sustraemdo 
+resta:
+    ; RDI tiene el primero numero ingresado (int a)
+    ; RSI tiene el segundo numero ingresado (int b)
 
-    mov rax, rdi            ; RAX revibe el primer numero 
-    sub rax, rsi            ; RAX = RAX - RSI 
+    mov rax rdi                 ; RAX = primer numero 
+    sub rax, rsi                ; Ahora RAX = RAX - RSI 
 
-    ret  
+    ret 

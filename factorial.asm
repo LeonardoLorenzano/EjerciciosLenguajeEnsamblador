@@ -1,18 +1,19 @@
 section .text
-    global factorial
+    global factorial 
 
 factorial: 
-    ; RDI contiene el numero 'n' ingresado por el usuario 
+    ; RDI contiene el numero 'n' ingresado por el usuario (Desde C)
 
-    mov rax, 1                        ; Inicializamos el acumulador en 1
-    mov rcx, rdi                      ; Usaremos a rcx para ir bajando 
+    mov rax, 1                        ; Inicializamos el acumulador en 1 (caso base para 0! y 1!)
+    mov rcx, rdi                      ; Copiamos 'n' a RCX para ir bajando 
 
 .bucle: 
-    cmp rcx, 1                        ; Comparamos el contador con 1
-    jle .fin                          ; Si RCX es <= 1, saltamos al final.
+    cmp rcx, 1                        ; ¿RCX es menor o igual a 1?
+    jle .fin                          ; Si es así, terminamos (evita multiplicar por 1 o 0)
+
     imul rax, rcx                     ; RAX = RAX * RCX 
-    dec rcx                           ; rcx--; 
-    jnz .bucle 
+    dec rcx                           ; RCX--
+    jmp .bucle                        ; Salto incondicional al inicio para evaluar el nuevo RCX
 
 .fin: 
-    ret                   
+    ret                               ; Retorna el resultado en RAX de forma segura a C
